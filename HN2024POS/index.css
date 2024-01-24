@@ -1,0 +1,213 @@
+:root [data-bs-theme="light"] {
+  --brand1: #0970aa;
+  --brand2: #faf8f6;
+  --theme1: #53c5ee;
+  --theme2: #aad698;
+  --theme3: #d9353c;
+  --bg-gradient: linear-gradient(90deg, #ccebe7 20%, #bae8f8 90%);
+  --moz-bg-gradient: -moz-linear-gradient(90deg, #ccebe7 20%, #bae8f8 90%);
+  --webkit-bg-gradient: -webkit-linear-gradient(90deg, #ccebe7 20%, #bae8f8 90%);
+}
+
+body {
+  background-color: #faf8f6;
+}
+
+/*Bootstrap/Plug-in Settings*/
+span.material-icons {
+  vertical-align: middle;
+  position: relative;
+  top: -1.5px;
+}
+.material-symbols-outlined.w200 {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 24
+}
+.material-symbols-outlined.w400 {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.material-symbols-outlined.filled.w400 {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/*card*/
+#categories-navigation {
+  margin-bottom: 20px;
+}
+#items-list .card, #cart-list .card {
+  border: none;
+  box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+#items-list .card .card-body {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  align-items: center;
+  gap: 20px;
+}
+.item-information {
+  flex: 1;
+}
+.item-name {
+  font-weight: 600;
+}
+.item-price {
+  color: var(--brand1);
+}
+.item-amount-adjust {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.amount-adjust {
+  color: var(--brand1);
+  font-size: 48px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.item-amount {
+  width: 100px;
+  font-size: 25px;
+  text-align: center;
+}
+#cart-table {
+  width: 100%;
+  font-size: 18px;
+}
+#cart-summary {
+  width: 100%;
+  font-size: 20px;
+}
+#cart-table th {
+  text-align: center;
+}
+#cart-table th:nth-child(2) {
+  width: 25%;
+}
+#cart-table td:nth-child(3n+0) {
+  text-align: center;
+}
+#cart-summary th:nth-child(2) {
+  width: 25%;
+}
+#cart-payments {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 100%;
+}
+#cart-payments button {
+  width: 100%;
+}
+#cash {
+  background-color: hsl(158, 49%, 39%);
+  border-color: hsl(158, 49%, 39%);
+  color: var(--bs-white);
+}
+#cash:hover {
+  background-color: hsl(158, 49%, 34%);
+  border-color: hsl(158, 49%, 34%)
+}
+#cash:active {
+  background-color: hsl(158, 49%, 29%)
+  border-color: hsl(158, 49%, 29%)
+}
+#promptpay {
+  background-color: hsl(202, 90%, 35%);
+  border-color: hsl(202, 90%, 35%);
+  color: var(--bs-white);
+}
+#promptpay:hover {
+  background-color: hsl(202, 90%, 30%);
+  border-color: hsl(202, 90%, 30%);
+}
+#promptpay:active {
+  background-color: hsl(202, 90%, 25%);
+  border-color: hsl(202, 90%, 25%);
+}
+#cart-reset {
+  width: 100%;
+  background-color: hsl(357, 68%, 53%);
+  border-color: hsl(357, 68%, 53%);
+  color: var(--bs-white);
+}
+#cart-reset:hover {
+  background-color: hsl(357, 68%, 48%);
+  border-color: hsl(357, 68%, 48%);
+}
+#cart-reset:active {
+  background-color: hsl(357, 68%, 43%);
+  border-color: hsl(357, 68%, 43%);
+}
+
+/*Content*/
+.content {
+  /*height: 100vh;*/
+  font-family: 'Sarabun', sans-serif;
+  padding-top: 70px;
+}
+.heading {
+  font-family: 'Anuphan', sans-serif;
+  font-weight: 700;
+}
+
+/*load ring*/
+.lds-ring {
+  display: block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  margin: 6px;
+  border: 6px solid var(--brand1);
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--brand1) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*swal*/
+.swal2-container {
+  font-family: 'Sarabun', sans-serif;
+}
+.swal2-title { 
+  font-size:25px;
+}
