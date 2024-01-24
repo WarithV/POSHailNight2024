@@ -162,7 +162,7 @@ $(document).ready(function(){
       cancelButtonText: "ยกเลิก",
       showLoaderOnConfirm: true,
         preConfirm: async function() {
-          var req_url = "https://script.google.com/macros/s/AKfycbyV64h6Yc63_eZX6qMC3c4eYAH2ogOaEUA9upFesxc2h98q7qGpOMMAingSCU3ChoTY7A/exec?type=write-order&query=" + JSON.stringify(cart) + "&payment_method=เงินสด";
+          var req_url = "https://script.google.com/macros/s/AKfycbxgbhMGiCe7QcAq4hdplRA2IR59JD2jkUJJqeC7hwb5IR4cpcGPBKVOB7Sv3Hy1Ba8wIQ/exec?type=write-order&query=" + JSON.stringify(cart) + "&payment_method=เงินสด";
 
           try {
             const response = await fetch(req_url);
@@ -250,7 +250,7 @@ $(document).ready(function(){
       cancelButtonText: "ยกเลิก",
       showLoaderOnConfirm: true,
       preConfirm: async function() {
-        var req_url = "https://script.google.com/macros/s/AKfycbyV64h6Yc63_eZX6qMC3c4eYAH2ogOaEUA9upFesxc2h98q7qGpOMMAingSCU3ChoTY7A/exec?type=write-order&query=" + JSON.stringify(cart) + "&payment_method=PromptPay";
+        var req_url = "https://script.google.com/macros/s/AKfycbxgbhMGiCe7QcAq4hdplRA2IR59JD2jkUJJqeC7hwb5IR4cpcGPBKVOB7Sv3Hy1Ba8wIQ/exec?type=write-order&query=" + JSON.stringify(cart) + "&payment_method=PromptPay";
 
         try {
           const response = await fetch(req_url);
