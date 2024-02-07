@@ -21,7 +21,7 @@ $(document).ready(async function(){
       allowEnterKey : false,
       didOpen : () => {
         Swal.showLoading();
-        window.open("/", "_self");
+        window.open("/POSHailNight2024/", "_self");
       }
     });
   });
