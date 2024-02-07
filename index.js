@@ -71,18 +71,18 @@ $(document).ready(async function(){
   const system_link = {
     "มัน-หอม-ผักทอด" : {
       name: "มัน/หอม/ผักทอด",
-      url: "/fried-veggies",
-      photo: "/assets/มันทอด.png"
+      url: "fried-veggies",
+      photo: "assets/มันทอด.png"
     },
     "เฉาก๊วยนมสด" : {
       name: "เฉาก๊วยนมสด",
-      url: "/grass-jelly-milk",
-      photo: "/assets/เฉาก๊วยนมสด.png"
+      url: "grass-jelly-milk",
+      photo: "assets/เฉาก๊วยนมสด.png"
     },
     "เซียมซี" : {
       name: "เซียมซี",
-      url: "/fortune-slip",
-      photo: "/assets/เซียมซี.png"
+      url: "fortune-slip",
+      photo: "assets/เซียมซี.png"
     }
   }
 
