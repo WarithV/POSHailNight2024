@@ -27,7 +27,7 @@ export const items = {
       }
     },
     price : 29,
-    photo : "/assets/มันทอด.png"
+    photo : "assets/มันทอด.png"
   },
   "หอมทอด" : {
     name : "หอมทอด",
@@ -55,7 +55,7 @@ export const items = {
       }
     },
     price : 29,
-    photo : "/assets/หอมทอด.png"
+    photo : "assets/หอมทอด.png"
   },
   "ฟักทองทอด" : {
     name : "ฟักทองทอด",
@@ -83,7 +83,7 @@ export const items = {
       }
     },
     price : 29,
-    photo : "/assets/ฟักทองทอด.png"
+    photo : "assets/ฟักทองทอด.png"
   },
   "เห็ดเข็มทองทอด" : {
     name : "เห็ดเข็มทองทอด",
@@ -111,7 +111,7 @@ export const items = {
       }
     },
     price : 29,
-    photo : "/assets/เห็ดเข็มทองทอด.png"
+    photo : "assets/เห็ดเข็มทองทอด.png"
   },
   "รวมมิตรของทอด" : {
     name : "รวมมิตรของทอด",
@@ -139,7 +139,7 @@ export const items = {
       }
     },
     price : 29,
-    photo : "/assets/รวมมิตรของทอด.png"
+    photo : "assets/รวมมิตรของทอด.png"
   },
   "เซ็ตคอมโบ" : {
     name : "เซ็ตคอมโบ ของทอด-เฉาก๊วยนมสด",
@@ -200,6 +200,6 @@ export const items = {
     price : 59,
     need_verification : true,
     promo_type: "combo_set_59",
-    photo : "/assets/เซ็ตคอมโบ ของทอด+เฉาก๊วยนมสด.png"
+    photo : "assets/เซ็ตคอมโบ ของทอด+เฉาก๊วยนมสด.png"
   }
 };
