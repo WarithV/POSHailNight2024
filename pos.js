@@ -1,7 +1,7 @@
 import * as items_info from 'items_info';
-import { auth, db } from '/firebase.js';
+import { auth, db } from '/POSHailNight2024/firebase.js';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { addOrder, orders, writeChanges } from '/order-manager.js';
+import { addOrder, orders, writeChanges } from '/POSHailNight2024/order-manager.js';
 import { collection, query, where, orderBy, getDocs, getCountFromServer, Timestamp, updateDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 var system_status = false;
