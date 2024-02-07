@@ -1,6 +1,6 @@
 import * as items_info from 'items_info';
-import { getSystemStatus } from '/pos.js';
-import { db } from '/firebase.js';
+import { getSystemStatus } from '/POSHailNight2024/pos.js';
+import { db } from '/POSHailNight2024/firebase.js';
 import { doc, updateDoc, onSnapshot, Timestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 async function getAllOrders(order_from = 1) {
