@@ -48,7 +48,7 @@ $(document).ready(async function(){
       userInfo["email"] = user.providerData[0].email;
       getUserInfo(user.uid);
     } else {
-      window.open("/", "_self");
+      window.open("/POSHailNight2024/", "_self");
     }
   });
 
