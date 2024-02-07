@@ -1,0 +1,99 @@
+<!--Written by Prem Warith-->
+<!--Use internally for Hail Night 2024 only-->
+<!--Copyright 2024 Prem Warith. All right reserved-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/promo-check/">
+    <!--description-->
+    <meta name="description" content="All you need for Hail Night 2024!"/>
+
+    <!-- og -->
+    <meta property="fb:app_id" content=""/>
+    <meta property="og:title" content="POS for Hail Night"/>
+    <meta property="og:description" content="All you need for Hail Night 2024!"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://treasurer-connect.web.app/"/>
+    <meta property="og:image" content="https://treasurer-connect.web.app/web_banner.png"/>
+    <meta http-equiv="Content-Language" content="en">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="192x192" href="/apple-icon-192x192.png">
+    <meta name="apple-mobile-web-app-title" content="HN2024 POS">
+    <meta name="theme-color" content="#faf8f6">
+
+    <title>POS for Hail Night</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&family=Sarabun:wght@400;600;700&family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body data-bs-theme="light">
+    <nav class="navbar fixed-top navbar-transparent">
+      <div class="container container-fluid">
+        <div class="navbar-brand mx-auto">
+          POS for Hail Night 2024 | <img src="/logo.png" alt="Logo" height="25" class="d-inline-block align-text-top">
+        </div>
+      </div>
+    </nav>
+    <div id="system-loader"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <div id="error">
+      <div id="error-container" align="center">
+        <h6 style="color: var(--theme3);" id="errorMessage"></h6>
+        <div class="text-secondary" id="errorCode"></div>
+      </div>
+    </div>
+    <div class="content" style="display:none;">
+      <div class="container">
+        <div style="display:flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 20px;">
+          <h3 class="heading" align="center" id="pageTitle">ตรวจสอบโปรโมชันบัตรแข็ง</h3>
+          <h6 id="greeting" align="center"></h6>
+          <button class="btn" id="logout"><span class="material-icons material-symbols-outlined w400" style="color: var(--theme3);">login</span> ออกจากระบบ</button>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col col-xl-4 col-lg-6 col-md-8">
+            <form id="id-search-form" class="needs-validation" onsubmit="return false" novalidate>
+              <div class="input-group mb-3">
+                <input type="search" class="form-control form-control-lg" id="id-field" pattern="(https:\/\/ticket.hailnight.com\/)?[A-Za-z0-9]{8}(-[A-Za-z0-9]{4}){3}-[A-Za-z0-9]{12}" placeholder="กรอกลิงก์บัตรแข็งเพื่อตรวจสอบ" required>
+                <button class="btn" type="submit" id="id-search"><span class="material-icons material-symbols-outlined w400" style="color: var(--brand2);">search</span></button>
+                <div class="invalid-feedback">โปรดกรอกลิงก์บัตรแข็ง</div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="content-loader"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+        <div id="search-result">
+          <div class="row justify-content-center">
+            <div class="card col-xl-6 col-lg-8">
+              <div class="card-body">
+                <div class="head" align="center">
+                  <span class="material-icons material-symbols-outlined filled w400" id="status-icon"></span>
+                  <h5 class="card-title" id="status"></h5>
+                  <h6 id="status-update"></h6>
+                </div>
+                <div id="promo-code"></div>
+                <div id="qrcode"></div>
+                <h6>รหัสหมดอายุใน</h6>
+                <div id="countdown">00:00</div>
+                <h6 style="color:var(--theme3); line-height:1.5em;" align="center">หมายเหตุ: ระบบ<u>ไม่ได้</u>ตรวจสอบว่าบัตรแข็งใบดังกล่าวร่วมโปรโมชันหรือไม่ การลงทะเบียนบัตรในระบบนี้ถือว่า<span style="font-weight:600;">คุณได้ตรวจสอบแล้วว่าบัตรแข็งใบดังกล่าวร่วมโปรโมชันจริง</span></h6>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <link rel="stylesheet" type="text/css" href="index.css" />
+  <script src="index.js" type="module"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</html>
