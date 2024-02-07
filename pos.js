@@ -119,8 +119,8 @@ $(document).ready(async function(){
     img.src = url;
   }
   
-  preload_img('/assets/promptpay.png');
-  preload_img('/assets/thaiqrpayment.png');
+  preload_img('assets/promptpay.png');
+  preload_img('assets/thaiqrpayment.png');
 
   var items = items_info.items;
   var cart = {};
@@ -448,10 +448,10 @@ $(document).ready(async function(){
         "<div style='width: 100%;'>" +
           "<div class='card' style='border: none; box-shadow: 1px 1px 8px rgba(0,0,0,0.2); border-radius: 15px; width: 95%; height: calc(100% - 20px); padding-bottom: 20px; max-width: 400px; margin: 0 auto;'>" +
             "<div class='card-header' style='background-color:#00558d; border-radius: 15px 15px 0 0;'>" +
-              "<img src='/assets/thaiqrpayment.png' height='30'>" +
+              "<img src='assets/thaiqrpayment.png' height='30'>" +
             "</div>" +
             "<div class='card-body'>" +
-              "<img src='/assets/promptpay.png' height='30' style='display:block; margin: 0 auto; margin-bottom: 10px;'>" +
+              "<img src='assets/promptpay.png' height='30' style='display:block; margin: 0 auto; margin-bottom: 10px;'>" +
               "<img id='loaded-qr' src='https://promptpay.io/0915342288/" + total_price + ".png' height='200' style='display:block; margin: 0 auto; margin-bottom: 10px;'>" +
               "<p class='h5' align='center' style='font-weight: 600; margin-bottom: 20px;'>วริทธิ์ วัฒนพลาชัยกูร<br/>Warith Vatanaplachaigoon</p>" +
               "<table style='width: 100%;'>" +
