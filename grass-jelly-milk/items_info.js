@@ -5,13 +5,13 @@ export const items = {
     name : "เฉาก๊วยนมสด",
     category : "เฉาก๊วยนมสด",
     price : 35,
-    photo : "/assets/เฉาก๊วยนมสด.png"
+    photo : "assets/เฉาก๊วยนมสด.png"
   },
   "ส่วนลดเฉาก๊วยนมสด" : {
     name : "ส่วนลดเฉาก๊วยนมสด",
     category : "เฉาก๊วยนมสด",
     price : -5,
-    photo : "/assets/เฉาก๊วยนมสด.png"
+    photo : "assets/เฉาก๊วยนมสด.png"
   },
   "เซ็ตคอมโบ" : {
     name : "เซ็ตคอมโบ ของทอด + เฉาก๊วยนมสด",
@@ -72,6 +72,6 @@ export const items = {
     price : 59,
     need_verification : true,
     promo_type: "combo_set_59",
-    photo : "/assets/เซ็ตคอมโบ ของทอด+เฉาก๊วยนมสด.png"
+    photo : "assets/เซ็ตคอมโบ ของทอด+เฉาก๊วยนมสด.png"
   }
 };
