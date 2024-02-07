@@ -1,4 +1,4 @@
-import { auth } from '/firebase.js';
+import { auth } from '/POSHailNight2024/firebase.js';
 import { signInWithCredential, signOut, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 $(document).ready(function(){
