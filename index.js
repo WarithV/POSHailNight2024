@@ -1,4 +1,4 @@
-import { auth, db } from '/firebase.js';
+import { auth, db } from '/POSHailNight2024/firebase.js';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { collection, query, where, getDocs, getCountFromServer } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
