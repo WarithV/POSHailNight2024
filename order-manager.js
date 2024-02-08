@@ -221,7 +221,7 @@ export function addOrder(key, data) {
           '<div class="order-item-information">' +
             '<h5 class="card-title order-item-name">' + data.items[i].name + ' x' + data.items[i].amount + '</h5>' +
             ((data.items[i].variation != "") ? '<h6 class="order-item-variation">' + data.items[i].variation + '</h6>' : '') +
-            ((data.items[i].desc != "") ? '<h6 class="order-item-desc">' + data.items[i].desc + '</h6>' : '') +
+            ((data.items[i].desc != "") ? '<h6 class="order-item-desc">Note: ' + data.items[i].desc + '</h6>' : '') +
           '</div>' +
         '</div>';
     }
