@@ -50,16 +50,20 @@ export const items = {
             name: "ไม่ใส่ผง",
             price_change: 0
           },
-          "รสบาร์บีคิว" : {
-            name: "รสบาร์บีคิว",
+          "รสชีส" : {
+            name: "รสชีส",
             price_change: 0
           },
           "รสปาปริก้า" : {
             name: "รสปาปริก้า",
             price_change: 0
           },
-          "รสชีส" : {
-            name: "รสชีส",
+          "รสลาบ" : {
+            name: "รสลาบ",
+            price_change: 0
+          },
+          "รสไก่สไปซี่" : {
+            name: "รสไก่สไปซี่",
             price_change: 0
           },
           "ผสมรส" : {
