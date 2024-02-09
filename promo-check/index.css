@@ -151,6 +151,15 @@ span.material-icons {
 #qrcode {
   margin-bottom: 20px;
 }
+#result-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#promo-status th, #promo-status td {
+  vertical-align: middle;
+}
 
 /*load ring*/
 #system-loader {
