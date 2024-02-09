@@ -42,7 +42,7 @@
     <nav class="navbar fixed-top navbar-transparent">
       <div class="container container-fluid">
         <div class="navbar-brand mx-auto">
-          POS for Hail Night 2024 | <img src="logo.png" alt="Logo" height="25" class="d-inline-block align-text-top">
+          POS for Hail Night 2024 | <img src="/logo.png" alt="Logo" height="25" class="d-inline-block align-text-top">
         </div>
       </div>
     </nav>
@@ -81,11 +81,17 @@
                   <h5 class="card-title" id="status"></h5>
                   <h6 id="status-update"></h6>
                 </div>
-                <div id="promo-code"></div>
-                <div id="qrcode"></div>
-                <h6>รหัสหมดอายุใน</h6>
-                <div id="countdown">00:00</div>
-                <h6 style="color:var(--theme3); line-height:1.5em;" align="center">หมายเหตุ: ระบบ<u>ไม่ได้</u>ตรวจสอบว่าบัตรแข็งใบดังกล่าวร่วมโปรโมชันหรือไม่ การลงทะเบียนบัตรในระบบนี้ถือว่า<span style="font-weight:600;">คุณได้ตรวจสอบแล้วว่าบัตรแข็งใบดังกล่าวร่วมโปรโมชันจริง</span></h6>
+                <div id="result-body">
+                  <div id="promo-code"></div>
+                  <div id="qrcode"></div>
+                  <h6 style="font-weight: 600;">รหัสหมดอายุใน</h6>
+                  <div id="countdown">00:00</div>
+                  <h6 style="color:var(--theme3); line-height:1.5em;" align="center">หมายเหตุ: ระบบ<u>ไม่ได้</u>ตรวจสอบว่าบัตรแข็งใบดังกล่าวร่วมโปรโมชันหรือไม่ การลงทะเบียนบัตรในระบบนี้ถือว่า<span style="font-weight:600;">ท่านได้ตรวจสอบแล้วว่าบัตรแข็งใบดังกล่าวร่วมโปรโมชันจริง</span></h6>
+                  <h6 style="font-weight: 600; margin-top: 20px;">สถานะโปรโมชัน</h6>
+                  <table id="promo-status" class="table table-hover">
+                    <tbody></tbody>
+                  </table>
+                </div>
               </div>
             </div> 
           </div>
