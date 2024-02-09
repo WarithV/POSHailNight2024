@@ -14,7 +14,7 @@ export const items = {
     photo : "assets/เฉาก๊วยนมสด.png"
   },
   "เซ็ตคอมโบ" : {
-    name : "เซ็ตคอมโบ ของทอด + เฉาก๊วยนมสด",
+    name : "เซ็ตคอมโบ ของทอด-เฉาก๊วยนมสด",
     isSet : true,
     set_categories : ["มัน-หอม-ผักทอด", "เฉาก๊วยนมสด"],
     customization : {
