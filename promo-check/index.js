@@ -12,7 +12,7 @@ $(document).ready(function(){
       userInfo["email"] = user.providerData[0].email;
       getUserInfo(user.uid);
     } else {
-      window.open("/POSHailNight2024/", "_self");
+      window.open("/", "_self");
     }
   });
 
@@ -39,6 +39,7 @@ $(document).ready(function(){
       querySnapshot.forEach((doc) => {
         var data = doc.data();
         userInfo["name"] = data.name;
+        userInfo["authorized"] = data.authorized;
       });
       $("#greeting").html("ยินดีต้อนรับ " + userInfo.name + " (" + userInfo.email + ")");
       $("#system-loader").hide();
@@ -73,6 +74,27 @@ $(document).ready(function(){
     })
   })()
 
+  var promo = {
+    "combo_set_59" : {
+      name : "เซ็ตคอมโบ ของทอด-เฉาก๊วยนมสด",
+      status : false,
+      type : ["มัน-หอม-ผักทอด", "เฉาก๊วยนมสด"]
+    },
+    "fortune_slip_free" : {
+      name : "เซียมซีฟรี 1 ครั้ง",
+      status : false,
+      type : ["เซียมซี"]
+    }
+  }
+
+  for (var i in promo) {
+    $("#promo-status tbody").append("<tr>" +
+          "<th scope='row'>" + promo[i].name + "</th>" +
+          "<td class='promo-status' for='" + i + "'></td>" +
+          "<td class='promo-action' for='" + i + "'></td>" +
+        "</tr>");
+  }
+
   $("#id-search-form").submit(async function(e) {
     var query = $("#id-field").val();
     if (query != "" && !$(this).hasClass("not-valid")) {
@@ -81,9 +103,12 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  var id, data;
+
   async function promo_check(card) {
     clearInterval(timer);
     $("#search-result").css("display", "none");
+    $("#result-body").css("display", "none");
     $("#content-loader").show();
     var promo_code = "";
     var timer = 300;
@@ -102,12 +127,14 @@ $(document).ready(function(){
           expired : Timestamp.fromMillis(Timestamp.now().toMillis() + 5*60*1000)
         });
       } else {
-        var id, data;
         querySnapshot.forEach((doc) => {
           id = doc.id;
           data = doc.data();
           return;
         });
+        for (var i in data.status) {
+          promo[i].status = data.status[i] != "available" && data.status[i] != "eligible_all" && data.status[i] !== undefined && data.status[i] !== null;
+        }
         if (data.expired.toMillis() > Timestamp.now().toMillis()) {
           promo_code = data.code;
           timer = Math.floor((data.expired.toMillis() - Timestamp.now().toMillis()) / 1000);
@@ -122,6 +149,20 @@ $(document).ready(function(){
           });
         }
       }
+      for (var i in promo) {
+        var authorized = promo[i].type.filter(function(item) {
+          return userInfo.authorized[item];
+        }).length != 0;
+        if (!promo[i].status) {
+          $(".promo-status[for='" + i + "']").html('<span style="color: #34a853;"><span class="material-icons material-symbols-outlined filled w400">check_circle</span> สามารถใช้ได้</span>');
+          if (authorized) {
+            $(".promo-action[for='" + i + "']").html('<button class="btn btn-danger promo-use" for="' + i + '">ปิดการใช้โปรโมชัน</button>');
+          }
+        } else {
+          $(".promo-status[for='" + i + "']").html('<span style="color: #ea4335;"><span class="material-icons material-symbols-outlined filled w400">cancel</span> ใช้ไปแล้ว</span>');
+          $(".promo-action[for='" + i + "']").html('');
+        }
+      }
       $("#status-icon").html("check_circle");
       $("#status").html("รับสิทธิ์สำเร็จ");
       $("#status-update").html("โปรดกรอกรหัสหรือสแกน QR Code ด้านล่างในระบบ POS");
@@ -131,6 +172,7 @@ $(document).ready(function(){
       $("#qrcode").html("");
       var qrcode = new QRCode("qrcode", promo_code);
       countdown(timer, $("#countdown"));
+      $("#result-body").css("display", "flex");
       document.getElementById('search-result').scrollIntoView();
     } catch (error) {
       $("#status-icon").html("error");
@@ -144,6 +186,47 @@ $(document).ready(function(){
     $("#search-result").css("display", "block");
     $("#content-loader").hide();
   }
+
+  $(document).on("click", ".promo-use", function() {
+    var promo_id = $(this).attr("for");
+    Swal.fire({
+      title: "คุณกำลังจะปิดการใช้โปรโมชัน " + promo[promo_id].name,
+      html : "และจะใช้ QR Code มหัศจรรย์ โดยฝ่ายเหรัญญิกจะสอบถามเหตุผลจากท่านทีหลัง <b>การดำเนินการนี้ไม่สามารถยกเลิกได้</b> ดำเนินการต่อหรือไม่",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#0970aa",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "ดำเนินการต่อ",
+      cancelButtonText: "ยกเลิก"
+    }).then(async function(result) {
+      if (result.isConfirmed) {
+        var data = {
+          all_purpose_qr_used : true
+        };
+        data["status." + promo_id] = "used";
+        await updateDoc(doc(db, "promo_code", id), data).then(function() {
+          Swal.fire({
+            title: "สำเร็จ",
+            html: "ปิดการใช้โปรโมชัน " + promo[promo_id].name + "เรียบร้อยแล้ว",
+            icon: "success",
+            confirmButtonColor: "#0970aa",
+            confirmButtonText: "ปิดหน้าต่าง"
+          });
+          promo[promo_id].status = true;
+          $(".promo-status[for='" + promo_id + "']").html('<span style="color: #ea4335;"><span class="material-icons material-symbols-outlined filled w400">cancel</span> ใช้ไปแล้ว</span>');
+          $(".promo-action[for='" + promo_id + "']").html('');
+        }).catch(function(error) {
+          Swal.fire({
+            title: "เกิดข้อผิดพลาด",
+            html: error.message + "(" + error.code + ")",
+            icon: "error",
+            confirmButtonColor: "#0970aa",
+            confirmButtonText: "เข้าใจแล้ว"
+          });
+        });
+      }
+    });
+  });
 
   function generateCode(length) {
     const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
